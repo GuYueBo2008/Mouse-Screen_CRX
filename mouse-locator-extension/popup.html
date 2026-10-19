@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>鼠标定位助手</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="panel">
+    <header class="header">
+      <div class="title">鼠标定位助手</div>
+      <button id="resetBtn" class="ghost" title="恢复默认设置">重置</button>
+    </header>
+
+    <section class="card">
+      <h2>快捷定位</h2>
+      <div class="grid">
+        <button data-quick="center">屏幕中心</button>
+        <button data-quick="top-left">左上角</button>
+        <button data-quick="bottom-right">右下角</button>
+        <button data-quick="random">随机位置</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>指定坐标</h2>
+      <div class="row">
+        <label class="field">
+          <span>X</span>
+          <input id="coordX" type="number" min="0" step="1" />
+        </label>
+        <label class="field">
+          <span>Y</span>
+          <input id="coordY" type="number" min="0" step="1" />
+        </label>
+      </div>
+      <div class="row range-row">
+        <span class="range-label">动画时长</span>
+        <input id="duration" type="range" min="0" max="2000" step="50" />
+        <span id="durationVal" class="range-val">600 ms</span>
+      </div>
+      <div class="grid">
+        <button id="moveBtn" class="primary">移动到坐标</button>
+        <button id="pickBtn">页面取点</button>
+        <button id="clickBtn">当前位置点击</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>元素定位</h2>
+      <input id="selector" type="text" placeholder="CSS 选择器，如 #login .btn" />
+      <button id="selectorBtn" class="primary full">定位到元素并居中</button>
+    </section>
+
+    <section class="card">
+      <h2>开关</h2>
+      <label class="switch">
+        <input id="optVisible" type="checkbox" />
+        <span>显示虚拟鼠标</span>
+      </label>
+      <label class="switch">
+        <input id="optLabel" type="checkbox" />
+        <span>显示坐标提示</span>
+      </label>
+      <label class="switch">
+        <input id="optEvents" type="checkbox" />
+        <span>派发真实鼠标事件</span>
+      </label>
+      <label class="switch">
+        <input id="optAutoClick" type="checkbox" />
+        <span>移动结束后自动点击</span>
+      </label>
+    </section>
+
+    <footer id="status" class="status">就绪</footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
